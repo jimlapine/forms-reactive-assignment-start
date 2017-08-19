@@ -8,14 +8,18 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  statuses = ['Stable', 'Critical', 'Finished'];
+  statuses = [
+      {text: 'Please select a value', value: ''},
+      {text: 'Stable', value: 'Stable'},
+      {text: 'Critical', value: 'Critical'},
+      {text: 'Finished', value: 'Finished'}];
   projectform: FormGroup;
 
   ngOnInit() {
     this.projectform = new FormGroup({
       'projectname': new FormControl(null, [Validators.required], this.projectIsValidAsync.bind(this)),
       'email': new FormControl(null, [Validators.email, Validators.required]),
-      'status': new FormControl(null)
+      'status': new FormControl('')
     });
   }
 

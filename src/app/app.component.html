@@ -65,8 +65,8 @@
             formControlName="status">
               <option
                 *ngFor="let status of statuses"
-                [value]="status">
-                  {{status}}
+                [value]="status.value">
+                  {{status.text}}
               </option>
           </select>
         </div>
